@@ -1,0 +1,17 @@
+import { Module } from '@nestjs/common';
+import { PassportModule } from '@nestjs/passport';
+import { OrdersController } from './orders.controller';
+import { OrdersService } from './orders.service';
+import { DatabaseModule } from '../database/database.module';
+
+@Module({
+  imports: [
+    DatabaseModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+  ],
+  controllers: [OrdersController],
+  providers: [OrdersService],
+  exports: [OrdersService],
+})
+
+export class OrdersModule {}
