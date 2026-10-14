@@ -13,11 +13,6 @@ async register(
   return this.usersService.createUser(
     body.username,
     body.password,
-    {
-      Student_ID: body.username,
-      First_Name: body.username,
-      Last_Name: body.username,
-    } as any,
   );
 }
 
