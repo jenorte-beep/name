@@ -7,13 +7,8 @@ export class AuthController {
   constructor(private authService: AuthService, private usersService: UsersService) {}
 
   @Post('register')
-async register(
-  @Body() body: { username: string; password: string },
-) {
-  return this.usersService.createUser(
-    body.username,
-    body.password,
-  );
+async register(@Body() body: { username: string; password: string }) {
+  return this.usersService.createUser(body.username, body.password);
 }
 
   @Post('login')
